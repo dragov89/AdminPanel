@@ -1,4 +1,4 @@
-package com.example.adminpanel.presentation
+package com.example.adminpanel.presentation.adminList
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

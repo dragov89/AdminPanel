@@ -1,4 +1,4 @@
-package com.example.adminpanel.presentation
+package com.example.adminpanel.presentation.adminUser
 
 import android.os.Bundle
 import android.view.LayoutInflater

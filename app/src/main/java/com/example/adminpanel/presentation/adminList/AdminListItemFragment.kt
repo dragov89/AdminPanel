@@ -1,20 +1,14 @@
-package com.example.adminpanel.presentation
+package com.example.adminpanel.presentation.adminList
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.ItemTouchHelper
-import androidx.recyclerview.widget.RecyclerView
 import com.example.adminpanel.R
 import com.example.adminpanel.databinding.FragmentAdminListItemBinding
-import com.example.adminpanel.domain.User
 
 class AdminListItemFragment : Fragment() {
 
@@ -84,7 +78,7 @@ class AdminListItemFragment : Fragment() {
 //    }
     private fun clickListener() {
         userAdapter.onUserClickListener = {
-            TODO()
+          findNavController().navigate(R.id.action_adminListItemFragment_to_adminUserFragment)
         }
     }
     private fun clickLongListener() {
