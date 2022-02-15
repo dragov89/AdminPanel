@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adminpanel.R
@@ -36,6 +37,10 @@ class AdminListItemFragment : Fragment() {
         viewModel.userList.observe(viewLifecycleOwner) {
             userAdapter.submitList(it)
         }
+        binding.btAddShop.setOnClickListener {
+            findNavController().navigate(R.id.action_adminListItemFragment_to_adminUserFragment)
+        }
+
     }
 
     private fun setupRecycleView() {
