@@ -25,4 +25,10 @@ class AdminUserFragment : Fragment() {
             activity?.onBackPressed()
         }
     }
+    companion object{
+        private const val ID_ITEM = "idUserItem"
+        private const val EXTRA_SCREEN_MOD = "extra_mode"
+        private const val EDIT_MOD = "edit_mod"
+        private const val ADD_MOD = "add_mod"
+    }
 }
