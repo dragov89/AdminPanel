@@ -42,15 +42,17 @@ class AdminUserViewModel : ViewModel() {
     val closedFragment: LiveData<Unit>
     get() = _closedFragment
 
-    fun deleteUser() {
-            deleteUserUseCase.deleteUserItem(items)
+    fun deleteUser(idUserItem: Int) {
+        val item =idUserItemUseCese.idUserItem(idUserItem)
+            deleteUserUseCase.deleteUserItem(item)
             finishFragment()
         }
 
 
     fun idUserItem(idUserItem: Int) {
-        items = idUserItemUseCese.idUserItem(idUserItem)
-        _users.value = items
+        val item =idUserItemUseCese.idUserItem(idUserItem)
+        _users.value =  item
+
     }
 
     fun addUser(
@@ -112,15 +114,15 @@ class AdminUserViewModel : ViewModel() {
 
     fun correctlyInput(login: String, password: String, name: String, yer: Int): Boolean {
         var result = true
-        if (login.isNotBlank()) {
+        if (login.isBlank()) {
             _errorInputLogin.value = true
             result = false
         }
-        if (password.isNotBlank()) {
+        if (password.isBlank()) {
             _errorInputPassword.value = true
             result = false
         }
-        if (name.isNotBlank()) {
+        if (name.isBlank()) {
             _errorInputName.value = true
             result = false
         }

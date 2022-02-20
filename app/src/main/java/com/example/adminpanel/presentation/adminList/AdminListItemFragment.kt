@@ -4,13 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.adminpanel.R
 import com.example.adminpanel.databinding.FragmentAdminListItemBinding
-import com.example.adminpanel.presentation.adminUser.AdminUserFragment
 
 class AdminListItemFragment : Fragment() {
 
@@ -34,7 +32,10 @@ class AdminListItemFragment : Fragment() {
             userAdapter.submitList(it)
         }
         binding.btAddShop.setOnClickListener {
-            findNavController().navigate(R.id.action_adminListItemFragment_to_adminUserFragment)
+            findNavController().navigate(AdminListItemFragmentDirections.actionAdminListItemFragmentToAdminUserFragment(
+                false
+            )
+            )
         }
 
     }
@@ -55,7 +56,7 @@ class AdminListItemFragment : Fragment() {
 //        swipeListener()
     }
 
-//    private fun swipeListener() {
+    //    private fun swipeListener() {
 //        val callback = object :
 //            ItemTouchHelper.SimpleCallback(
 //                0,
@@ -80,9 +81,16 @@ class AdminListItemFragment : Fragment() {
 //    }
     private fun clickListener() {
         userAdapter.onUserClickListener = {
-          findNavController().navigate(R.id.action_adminListItemFragment_to_adminUserFragment)
+            val itemId = it.id
+            findNavController().navigate(
+                AdminListItemFragmentDirections.actionAdminListItemFragmentToAdminUserFragment(
+                    true,
+                    itemId
+                )
+            )
         }
     }
+
     private fun clickLongListener() {
         userAdapter.onUserClickLongListener = {
             viewModel.editUserStatus(it)
