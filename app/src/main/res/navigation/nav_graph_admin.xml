@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/adminListItemFragment"
-        android:name="com.example.adminpanel.presentation.AdminListItemFragment"
+        android:name="com.example.adminpanel.presentation.adminList.AdminListItemFragment"
         android:label="fragment_admin_list_item"
         tools:layout="@layout/fragment_admin_list_item" >
         <action
@@ -16,7 +16,15 @@
     </fragment>
     <fragment
         android:id="@+id/adminUserFragment"
-        android:name="com.example.adminpanel.presentation.AdminUserFragment"
+        android:name="com.example.adminpanel.presentation.adminUser.AdminUserFragment"
         android:label="fragment_admin_user"
-        tools:layout="@layout/fragment_admin_user" />
+        tools:layout="@layout/fragment_admin_user" >
+        <argument
+            android:name="screen_mod"
+            app:argType="boolean" />
+        <argument
+            android:name="id_user_item"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
 </navigation>

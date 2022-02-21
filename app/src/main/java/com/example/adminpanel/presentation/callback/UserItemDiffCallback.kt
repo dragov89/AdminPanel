@@ -1,4 +1,4 @@
-package com.example.adminpanel.presentation
+package com.example.adminpanel.presentation.callback
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.adminpanel.domain.User

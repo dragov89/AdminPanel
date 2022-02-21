@@ -1,4 +1,4 @@
-package com.example.adminpanel.presentation
+package com.example.adminpanel.presentation.adminList
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.adminpanel.R
 import com.example.adminpanel.domain.User
+import com.example.adminpanel.presentation.callback.UserItemDiffCallback
 
 class AdapterUserList : ListAdapter<User,
         AdapterUserList.UserViewHolder>(UserItemDiffCallback()) {

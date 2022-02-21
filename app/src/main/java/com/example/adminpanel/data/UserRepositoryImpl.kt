@@ -16,17 +16,17 @@ object UserRepositoryImpl : UserRepository {
 
     private var autoIncrementId = 0
 
-        //список (заповнення списка даними)
+    //список (заповнення списка даними)
     init {
-        for (i in 0 until 33){
-            val item = User("Login $i", "$i","Name $i", Random.nextBoolean())
+        for (i in 0 until 5) {
+            val item = User("Login $i", "$i", "Name $i", Random.nextBoolean())
             addUserItem(item)
         }
     }
 
     override fun addUserItem(user: User) {
-        if (user.id == User.UNDEF_ID){
-        user.id = autoIncrementId++
+        if (user.id == User.UNDEF_ID) {
+            user.id = autoIncrementId++
         }
         userList.add(user)
         updateList()
@@ -35,27 +35,25 @@ object UserRepositoryImpl : UserRepository {
     override fun deleteUserItem(user: User) {
         userList.remove(user)
         updateList()
-
     }
-
 
     override fun editUserItem(user: User) {
         val oldUser = idUserItem(user.id)
         userList.remove(oldUser)
         addUserItem(user)
-
     }
 
     override fun idUserItem(userItemId: Int): User {
-        return userList.find { it.id == userItemId }
-            ?: throw RuntimeException("id $userItemId not found")
+        return userList.find {
+            it.id == userItemId
+        } ?: throw RuntimeException("id $userItemId not found")
     }
 
     override fun getUserList(): LiveData<List<User>> {
         return listUserLiveData
     }
 
-    fun updateList(){
+    fun updateList() {
         listUserLiveData.value = userList.toList()
     }
 }
